@@ -8,6 +8,10 @@ export default function routerBeforeEach (router) {
       next()
       return
     }
+    if (to.path === '/svgicons') {
+      next()
+      return
+    }
     if (to.path === '/logout') {
       if (profile) {
         store.commit('SET_USERNAME', '')

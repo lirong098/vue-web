@@ -12,12 +12,10 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-         //target: 'http://dev.douwa.io',
         target: 'http://localhost',
         changeOrigin: true
       },
       '/auth': {
-         //target: 'http://dev.douwa.io',
          target: 'http://localhost',
         changeOrigin: true
       }

@@ -5,9 +5,9 @@
       mode="horizontal"
       @select="handleSelect"
       active-text-color="#409eff">
-      <el-menu-item index="1" disabled>DouWa</el-menu-item>
+      <el-menu-item index="1" disabled>VueWeb</el-menu-item>
       <el-menu-item index="index">首页</el-menu-item>
-      <el-menu-item index="repositories">镜像</el-menu-item>
+      <!-- <el-menu-item index="repositories">镜像</el-menu-item> -->
       <el-submenu index="2" style="float:right;" v-if="username">
         <template slot="title">{{username}}</template>
         <el-menu-item index="userSetting">用户设置</el-menu-item>
