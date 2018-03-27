@@ -78,7 +78,7 @@ vue-web 部署目录
 ~~~
 # 按需加载
 vue项目实现按需加载有3种方式：
-* vue异步组件
+* [vue异步组件](https://cn.vuejs.org/v2/guide/components.html#%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6)
 ```javascript
 {
     path: '/svgicons',
@@ -86,7 +86,7 @@ vue项目实现按需加载有3种方式：
     component: resolve => require(['@/views/svg-icons/index.vue'], resolve)
 }
 ```
-* es提案的import()
+* import()(建议使用此方法)
 ```javascript
 const layout = () => import(/* webpackChunkName: 'g-main' */ '@/views/layout/layout.vue')
 const svgIcons = () => import(/* webpackChunkName: 'g-main' */ '@/views/svg-icons/index.vue')
