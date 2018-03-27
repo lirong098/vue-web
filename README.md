@@ -105,6 +105,7 @@ const login = r => require.ensure([], () => r(require('@/views/login/login.vue')
   component: login
 }
 ```
+[webpack动态导入](https://doc.webpack-china.org/guides/code-splitting/#%E5%8A%A8%E6%80%81%E5%AF%BC%E5%85%A5-dynamic-imports-)
 
 # vue-web
 
