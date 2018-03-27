@@ -1,0 +1,32 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+stages:
+- dist
+- deploy
+
+cache:
+  key: "${CI_COMMIT_SHA}"
+  paths:
+    - dist
+
+dist:
+  stage: dist
+  image: daocloud.io/node:8
+  script:
+    - npm install
+    - npm run build
+
+deploy-dev:
+  stage: deploy
+  script:
+    - docker build -t web:009 .
+    - docker stop web:009 && docker rm web:009
+    # deploy apo
+    - docker run -d --name web  -p 8080:8080 web:009
+  environment:
+    name: develop
+  only:
+    - dev

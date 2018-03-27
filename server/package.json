@@ -1,0 +1,15 @@
+{
+  "name": "hive",
+  "version": "0.3.0",
+  "description": "Node.js on Docker",
+  "author": "Douwa",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "compression": "^1.7.1",
+    "express": "^4.13.3",
+    "http-proxy-middleware": "^0.17.4"
+  }
+}
