@@ -107,6 +107,37 @@ const login = r => require.ensure([], () => r(require('@/views/login/login.vue')
 ```
 [webpack动态导入](https://doc.webpack-china.org/guides/code-splitting/#%E5%8A%A8%E6%80%81%E5%AF%BC%E5%85%A5-dynamic-imports-)
 
+# 使用svg
+安装 webpack 插件 svg-sprite-loader
+```javascript
+// webpack.base.conf.js
+module: {
+    rules: [
+        ...
+        // 引入svg-sprite-loader
+        {
+            test: /\.svg$/,
+            loader: 'svg-sprite-loader',
+            include: [resolve('src/icons')], // 仅仅处理 此目录下的svg
+            options: {
+            symbolId: 'icon-[name]'
+            }
+        },
+        {
+            test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+            loader: 'url-loader',
+            exclude: [resolve('src/icons')], // 不处理此目录下的svg 否则处理两边报错
+            options: {
+            limit: 10000,
+            name: utils.assetsPath('img/[name].[hash:7].[ext]')
+            }
+        }
+        ...
+    ]
+  }
+```
+参考 [webpack 插件 svg-sprite-loader](https://cisy.me/webpack-svg-sprite/)
+
 # vue-web
 
 > A Vue.js project
